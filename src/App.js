@@ -3,6 +3,7 @@ import './App.css';
 import { Routes, Route } from 'react-router-dom';
 import BookList from './components/BookList'
 import SingleBook from './components/SingleBook';
+import NotFoundPage from "./pages/NotFoundPage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<BookList />} />
         <Route path="/blog/:id" element={<SingleBook />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </div>
   );
