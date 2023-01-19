@@ -4,12 +4,12 @@ import altogic from "../altogic";
 import { Link } from "react-router-dom";
 
 const SingleBook = () => {
-  const { id } = useParams();
+  const { _id } = useParams();
 
-  const [book, setBook] = useState();
+  const [book, setBook] = useState(null);
   useEffect(() => {
     const getBook = async () => {
-      const result = await altogic.db.model("books").object(id).get();
+      const result = await altogic.db.model("books").object(_id).get();
       if (!result.errors) {
         setBook(result.data);
       } else {
@@ -17,7 +17,7 @@ const SingleBook = () => {
       }
     };
     getBook();
-  }, [id]);
+  }, [_id]);
   return (
     <div>
       <Link to="/">Back to Books</Link>
